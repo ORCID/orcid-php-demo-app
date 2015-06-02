@@ -80,9 +80,9 @@
         <h1>Get an ORCID iD!</h1>
         <br>
         <p class="lead">Click the button below to create an ORCID iD and connect it to State University's faculty profile system.</p>
-        <a class="btn btn-large" href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-V05T7FZU8MBVCXGN&response_type=code&scope=/authenticate&redirect_uri=http://localhost/orcid/oauth-redirect.php"><img id="orcid-id-logo" src="http://orcid.org/sites/default/files/images/orcid_24x24.png" width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
+        <a class="btn btn-large" href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-V05T7FZU8MBVCXGN&response_type=code&scope=/authenticate&redirect_uri=https://evening-oasis-3521.herokuapp.com/oauth-redirect.php"><img id="orcid-id-logo" src="http://orcid.org/sites/default/files/images/orcid_24x24.png" width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
         <br> <br>
-        <p class="lead">Already have an ORCID iD? <a href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-V05T7FZU8MBVCXGN&response_type=code&scope=/authenticate&redirect_uri=http://localhost/orcid/oauth-redirect.php&show_login=true">Connect your existing ORCID iD</a>
+        <p class="lead">Already have an ORCID iD? <a href="https://sandbox.orcid.org/oauth/authorize?client_id=APP-V05T7FZU8MBVCXGN&response_type=code&scope=/authenticate&redirect_uri=https://evening-oasis-3521.herokuapp.com/oauth-redirect.php&show_login=true">Connect your existing ORCID iD</a>
       </div>
 
       <hr>

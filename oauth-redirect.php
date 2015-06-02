@@ -42,7 +42,7 @@
 // Register your client at https://orcid.org/developer-tools and replace the details below
 define('OAUTH_CLIENT_ID', 'APP-V05T7FZU8MBVCXGN');
 define('OAUTH_CLIENT_SECRET', 'a6cb6542-d7d4-44e2-9280-310c0fe05697');
-define('OAUTH_REDIRECT_URI', 'http://localhost/orcid/oauth-redirect.php'); // URL of this script
+define('OAUTH_REDIRECT_URI', 'https://evening-oasis-3521.herokuapp.com/oauth-redirect.php'); // URL of this script
 define('ORCID_PRODUCTION', false); // sandbox; change to true when ready to leave the  sandbox
 /* end editable */
 
