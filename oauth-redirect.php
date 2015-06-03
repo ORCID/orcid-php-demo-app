@@ -133,12 +133,12 @@ if (isset($_GET['code'])) {
           <h4>Subheading</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
         </div>
-      </div>-->
+      </div>
 
-      <hr>
+      <hr>-->
 
       <div class="footer">
-
+        Want to build your own create-on-demand app? <a href="https://github.com/lizkrznarich/orcid-demo-app" target="_blank">Get the code</a>
       </div>
 
     </div> <!-- /container -->
