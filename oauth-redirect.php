@@ -27,7 +27,7 @@
 
 define('OAUTH_CLIENT_ID', 'APP-V05T7FZU8MBVCXGN');//client ID
 define('OAUTH_CLIENT_SECRET', 'a6cb6542-d7d4-44e2-9280-310c0fe05697');//client secret
-define('OAUTH_REDIRECT_URI', 'https://evening-oasis-3521.herokuapp.com/oauth-redirect.php');//redirect URI
+define('OAUTH_REDIRECT_URI', 'https://orcid-create-on-demand.herokuapp.com/oauth-redirect.php');//redirect URI
 
 //ORCID API ENDPOINTS
 ////////////////////////////////////////////////////////////////////////
