@@ -92,7 +92,7 @@ if (isset($_GET['code'])) {
         <ul class="nav nav-pills pull-right">
           <li><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
           <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
-          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID Support</a></li>
+          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
       </div>

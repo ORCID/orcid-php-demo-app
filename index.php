@@ -26,7 +26,7 @@
         <ul class="nav nav-pills pull-right">
           <li class="active"><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
           <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
-          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID Support</a></li>
+          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
       </div>
@@ -44,19 +44,8 @@
 
       <hr>
 
-      <div class="row-fluid marketing">
-        <div class="span12">
-          <h4>Subheading</h4>
-          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-          <!--<h4>Subheading</h4>
-          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-          <h4>Subheading</h4>
-          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
-        </div>
-
-        <!--<div class="span6">
+     <!-- <div class="row-fluid marketing">
+        <div class="span6">
           <h4>Subheading</h4>
           <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
@@ -65,10 +54,21 @@
 
           <h4>Subheading</h4>
           <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>-->
+        </div>
+
+        <div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>
       </div>
 
-      <hr>
+      <hr>-->
 
       <div class="footer">
 
