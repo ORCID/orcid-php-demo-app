@@ -1,191 +1,162 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>
-		ORCID OAuth Redirect
-</title>
-<style>
-	body{
-		font-family: Helvetica, Arial, sans-serif;
-		color: #999;
-	}
-	h1{
-		
-		font-size: 1.2em;
-		//text-transform: uppercase;
-		line-height: 24px;
-		vertical-align: middle;
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ORCID Create on Demand Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="boostrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
-	}
-	#return-message{
-		border: 1px solid #D3D3D3;
-		padding: 1em;
-		background-color: #fff;
-		border-radius: 8px;
-		box-shadow: 1px 1px 3px #999;
-		cursor: pointer;
-		margin: 100px 0 0 100px;
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="boostrap/js/html5shiv.js"></script>
+    <![endif]-->
 
-	}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="http://orcid.org/sites/default/files/images/orcid_16x16.png" />
+  </head>
 
-
-
-	
-</style>
-</head>
-
-	<body>
+  <body>
 
 <?php
 
-/* start editable */
-// Register your client at https://orcid.org/developer-tools and replace the details below
-define('OAUTH_CLIENT_ID', 'APP-V05T7FZU8MBVCXGN');
-define('OAUTH_CLIENT_SECRET', 'a6cb6542-d7d4-44e2-9280-310c0fe05697');
-define('OAUTH_REDIRECT_URI', 'https://evening-oasis-3521.herokuapp.com/oauth-redirect.php'); // URL of this script
-define('ORCID_PRODUCTION', false); // sandbox; change to true when ready to leave the  sandbox
-/* end editable */
+//ORCID API CREDENTIALS - replace these values with your API credentials
+////////////////////////////////////////////////////////////////////////
 
-if (ORCID_PRODUCTION) {
-  // production endpoints
-  define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');
-  define('OAUTH_TOKEN_URL', 'https://pub.orcid.org/oauth/token'); // public
-  //define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); // members
-} else {
-  // sandbox endpoints
-  define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');
-  //define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token'); // public
-  define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); // members
-}
+define('OAUTH_CLIENT_ID', 'APP-V05T7FZU8MBVCXGN');//client ID
+define('OAUTH_CLIENT_SECRET', 'a6cb6542-d7d4-44e2-9280-310c0fe05697');//client secret
+define('OAUTH_REDIRECT_URI', 'https://evening-oasis-3521.herokuapp.com/oauth-redirect.php');//redirect URI
 
-$params = "client_id=" . OAUTH_CLIENT_ID . "&client_secret=" . OAUTH_CLIENT_SECRET . "&grant_type=authorization_code&code=" . $_GET['code'] . "&redirect_uri=" . OAUTH_REDIRECT_URI;
+//ORCID API ENDPOINTS
+////////////////////////////////////////////////////////////////////////
 
-// redirect the user to approve the application
-/*if (!$_GET['code']) {
-  $state = bin2hex(openssl_random_pseudo_bytes(16));
-  setcookie('oauth_state', $state, time() + 3600, null, null, false, true);
+//Sandbox - Member API
+define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
+define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
 
-  $url = OAUTH_AUTHORIZATION_URL . '?' . http_build_query(array(
-      'response_type' => 'code',
-      'client_id' => OAUTH_CLIENT_ID,
-      'redirect_uri' => OAUTH_REDIRECT_URI,
-      'scope' => '/authenticate',
-      'state' => $state,
-  ));
+//Sandbox - Public API
+//define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
+//define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token');//token endpoint
 
-  header('Location: ' . $url);
-  exit();
-}
+//Production - Member API
+//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
+//define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
 
-// code is returned, check the state
-if (!$_GET['state'] || $_GET['state'] !== $_COOKIE['oauth_state']) {
-  exit('Invalid state');
-}*/
+//Production - Public API
+//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
+//define('OAUTH_TOKEN_URL', 'https://pub.orcid.org/oauth/token');//token endpoint
 
-// fetch the access token
-$ch = curl_init();
+//EXCHANGE AUTHORIZATION CODE FOR ACCESS TOKEN
+////////////////////////////////////////////////////////////////////////
+
+//If an authorization code exists, fetch the access token
+if (isset($_GET['code'])) {
+
+	//Build request parameter string
+	$params = "client_id=" . OAUTH_CLIENT_ID . "&client_secret=" . OAUTH_CLIENT_SECRET . "&grant_type=authorization_code&code=" . $_GET['code'] . "&redirect_uri=" . OAUTH_REDIRECT_URI;
+
+
+	//Initialize cURL session
+	$ch = curl_init();
 
 	//Set cURL options
-	//URL
 	curl_setopt($ch, CURLOPT_URL, OAUTH_TOKEN_URL);
-	//Headers
 	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-	//POST request
 	curl_setopt($ch, CURLOPT_POST, true);
-	//POST params
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-	//turn off SSL verification
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
-
+	curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);//Turn off SSL certificate check for testing - remove this for production version!
+	curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);//Turn off SSL certificate check for testing - remove this for production version!
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 
+	//Execute cURL command
 	$result = curl_exec($ch);
 
+	//Close cURL session
 	curl_close($ch);
 
-	//print_r($result);
+	//Transform cURL response from json string to php array
+	$response = json_decode($result, true);
 
-
-
-//$info = curl_getinfo($curl);
-$response = json_decode($result, true);
-
-// ORCID = $response['orcid']
-
-//print_r($response);
-//exit();
+} else {
+	//If an authorization code doesn't exist, throw an error
+	echo "Unable to connect to ORCID";
+}
 
 ?>		
 
+<div class="container-narrow">
 
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+        <h3 class="muted">ORCID @ State University</h3>
+      </div>
 
-<?php
-/*if (isset($_GET['code'])) {
-    // try to get an access token
-    $code = $_GET['code'];
-    $url = 'https://api.sandbox.orcid.org/oauth/token';
-    $params = "client_id=APP-V05T7FZU8MBVCXGN&client_secret=a6cb6542-d7d4-44e2-9280-310c0fe05697&grant_type=authorization_code&code=" . $_GET['code'] . "&redirect_uri=http://localhost/orcid/oauth-redirect.php";
+      <hr>
 
-	//echo $params . "</br>";
+      <div class="jumbotron">
+			<h1>Thanks, <?php echo $response['name']; ?>!</h1>
+			<br>
+			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
+			<br> <br>
+			<a class="btn btn-large"  href="http://sandbox.orcid.org/my-orcid" target="_blank">Go to your ORCID record</a>
+	</div>
 
+<hr>
 
-    $ch = curl_init();
+      <div class="row-fluid marketing">
+        <div class="span12">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
-	//Set cURL options
-	//URL
-	curl_setopt($ch, CURLOPT_URL, 'https://api.sandbox.orcid.org/oauth/token');
-	//Headers
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-	//POST request
-	curl_setopt($ch, CURLOPT_POST, true);
-	//POST params
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-	//turn off SSL verification
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);
+          <!--<h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-    $output = curl_exec($ch);
-    //$info = curl_getinfo($ch);
-    $response = json_decode($output, true);
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>-->
+        </div>
 
-    curl_close($ch);
+        <!--<div class="span6">
+          <h4>Subheading</h4>
+          <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
 
+          <h4>Subheading</h4>
+          <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-    //echo $output;
-    //print_r($info);
-    /*
+          <h4>Subheading</h4>
+          <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+        </div>-->
+      </div>
 
-    if ($info['http_code'] === 200) {
-        header('Content-Type: ' . $info['content_type']);
-        return $output;
-    } else {
-        return 'An error happened';
-    }
+      <hr>
 
+      <div class="footer">
 
-}*/
-?>
+      </div>
 
+    </div> <!-- /container -->
 
-<div id="return-message">
-<h1>Thanks, <?php echo $response['name']; ?>!</h1>
-<p>Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
-<p><a href="http://sandbox.orcid.org/my-orcid" target="_blank">Go to your ORCID record</a></p>
+    <!-- Javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="boostrap/js/jquery.js"></script>
+    <script src="boostrap/js/bootstrap-transition.js"></script>
+    <script src="boostrap/js/bootstrap-alert.js"></script>
+    <script src="boostrap/js/bootstrap-modal.js"></script>
+    <script src="boostrap/js/bootstrap-dropdown.js"></script>
+    <script src="boostrap/js/bootstrap-scrollspy.js"></script>
+    <script src="boostrap/js/bootstrap-tab.js"></script>
+    <script src="boostrap/js/bootstrap-tooltip.js"></script>
+    <script src="boostrap/js/bootstrap-popover.js"></script>
+    <script src="boostrap/js/bootstrap-button.js"></script>
+    <script src="boostrap/js/bootstrap-collapse.js"></script>
+    <script src="boostrap/js/bootstrap-carousel.js"></script>
+    <script src="boostrap/js/bootstrap-typeahead.js"></script>
 
-<!--<button id="connect-orcid-demo" onclick="self.close ()">Close this Window</button>
-<script type=text/javascript>
-
-var oauthWindow;
-
-function orcidOAUTH() {
-    var oauthWindow = window.open("http://localhost:8080/oauth-redirect.html?client_id=0000-0003-2996-8827&response_type=code&scope=/authenticate&redirect_uri=http://support.orcid.org/knowledgebase/articles/409707", "_blank", "toolbar=no, scrollbars=yes, width=480, height=600, top=500, left=500");
-}
-
-function closeWindow() {
-    oauthWindow.close();
-}
-</script>-->
-	
-	</body>
+  </body>
 </html>
