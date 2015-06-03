@@ -24,9 +24,9 @@
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li class="active"><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
+          <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
+          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID Support</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
       </div>

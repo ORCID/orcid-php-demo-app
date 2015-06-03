@@ -90,9 +90,9 @@ if (isset($_GET['code'])) {
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
+          <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
+          <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID Support</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
       </div>
@@ -103,7 +103,8 @@ if (isset($_GET['code'])) {
 			<h1>Thanks, <?php echo $response['name']; ?>!</h1>
 			<br>
 			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
-			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <?php echo $response['access_token']; ?></p>
+			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
+			<p>(for demo purposes only - don't show access tokens in live apps!)</p>
 			<br> <br>
 			<a class="btn btn-large"  href="http://sandbox.orcid.org/my-orcid" target="_blank">Go to your ORCID record</a>
 	</div>
