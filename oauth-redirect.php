@@ -25,16 +25,16 @@
 //ORCID API CREDENTIALS - replace these values with your API credentials
 ////////////////////////////////////////////////////////////////////////
 
-define('OAUTH_CLIENT_ID', 'APP-V05T7FZU8MBVCXGN');//client ID
-define('OAUTH_CLIENT_SECRET', 'a6cb6542-d7d4-44e2-9280-310c0fe05697');//client secret
-define('OAUTH_REDIRECT_URI', 'http://localhost:8000/callback');//redirect URI
+define('OAUTH_CLIENT_ID', 'APP-XXXXXXXXXXXXXXXX');//client ID
+define('OAUTH_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXX');//client secret
+define('OAUTH_REDIRECT_URI', 'http://your-redirect-uri.org');//redirect URI
 
 //ORCID API ENDPOINTS
 ////////////////////////////////////////////////////////////////////////
 
 //Sandbox - Member API
-define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
+//define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
+//define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
 
 //Sandbox - Public API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
@@ -45,8 +45,8 @@ define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token 
 //define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
 
 //Production - Public API
-//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://pub.orcid.org/oauth/token');//token endpoint
+define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
+define('OAUTH_TOKEN_URL', 'https://orcid.org/oauth/token');//token endpoint
 
 //EXCHANGE AUTHORIZATION CODE FOR ACCESS TOKEN
 ////////////////////////////////////////////////////////////////////////
