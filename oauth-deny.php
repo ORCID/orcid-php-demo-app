@@ -35,9 +35,18 @@
       <hr>
 
       <div class="jumbotron">
-			<h1>: (</h1>
-      <p class="lead">We are terribly sad that you don't want to connect your ORCID iD to State University at this time</p>
+			<div class="alert alert-info"><h3>No connection was made</h3></div>
+      <p class="lead">Didn't I just do this?</p>
+      <p>You have enabled single sign on, allowing your State University log in credentials to be used when using the ORCID website and services. So far this connection is in one direction: The ORCID site knows who you are when you use your State University sign in, though the university doesn't know your ORCID iD, and can't read or write to your ORCID record.</p>
+      <h2>Why are you asking my permission?</h2>
+      <p>ORCID iDs are used by publishers, funders, associations and other organization to make sure your work is correctly attributed to you. Connecting your iD and record to the university will provide several other benefits, including:</p>
+      <ul><li><strong>University Profile Update</strong>: Matches publications by your iD, elimiating the need for you to confirm that each publication is yours.</li>
+        <li><strong>Repository Services</strong>: When depositing into the university repository, we will automatically add them to your ORCID record, making it easier for you to make them available to other organizations and services.</li>
+        <li><strong>Automated Forms &amp; Reporting</strong>: If you connect your iD and Record, we will use this information to help reduce paperwork and reporting burden.</li>
+      </ul>
+      <p>To do this, State University needs your permission.</p>
 			
+      <a class="btn btn-primary btn-large">Let me try again</a>
 	</div>
 
 <hr>
