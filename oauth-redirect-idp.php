@@ -35,18 +35,22 @@ define('OAUTH_REDIRECT_URI', 'http://your-redirect-uri.org');//redirect URI
 //Sandbox - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
 //define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
+//define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Sandbox - Public API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
 //define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token');//token endpoint
+//define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Production - Member API
-//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
+define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
+define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
+define('ENV', 'https://orcid.org'); //environment
 
 //Production - Public API
-define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
-define('OAUTH_TOKEN_URL', 'https://orcid.org/oauth/token');//token endpoint
+//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
+//define('OAUTH_TOKEN_URL', 'https://orcid.org/oauth/token');//token endpoint
+//define('ENV', 'https://orcid.org'); //environment
 
 //EXCHANGE AUTHORIZATION CODE FOR ACCESS TOKEN
 ////////////////////////////////////////////////////////////////////////
@@ -80,8 +84,8 @@ if (isset($_GET['code'])) {
 	$response = json_decode($result, true);
 
 } else {
-	//If an authorization code doesn't exist, throw an error
-	echo "Unable to connect to ORCID";
+	//If an authorization code doesn't exist, redirect user to another page
+	header( "Location: oauth-deny.php" ); die;
 }
 
 ?>		
@@ -90,7 +94,7 @@ if (isset($_GET['code'])) {
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
           <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
@@ -100,13 +104,12 @@ if (isset($_GET['code'])) {
       <hr>
 
       <div class="jumbotron">
-			<h1>Thanks, <?php echo $response['name']; ?>!</h1>
-			<br>
-			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
-			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
-			<p>(for demo purposes only - don't show access tokens in live apps!)</p>
-			<br> <br>
-			<a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">Go to your ORCID record</a>
+			<h1>Thanks <?php echo $response['name']; ?>!</h1>
+      <p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> is now connected to State University</p>
+      <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
+      <br> <br>
+      <a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">View your ORCID record</a>
+			
 	</div>
 
 <hr>
