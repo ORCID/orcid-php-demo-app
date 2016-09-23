@@ -5,9 +5,9 @@
     <title>ORCID Create on Demand Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Styles -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="boostrap/css/bootstrap-responsive.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="../boostrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -34,13 +34,13 @@
       <hr>
 
       <div class="jumbotron">
-			<h1>Thanks, <?php echo $response['name']; ?>!</h1>
+			<h1>Thanks Josiah Carberry!</h1>
 			<br>
-			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
-			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
+			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is http://orcid.org/0000-0002-1825-0097</p>
+			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b>XXXXXXXXXXXXXXXXXXXXXXXXX</b></p>
 			<p>(for demo purposes only - don't show access tokens in live apps!)</p>
 			<br> <br>
-			<a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">Go to your ORCID record</a>
+			<a class="btn btn-large"  href="https://orcid.org/my-orcid" target="_blank">Go to your ORCID record</a>
 	</div>
 
 <hr>
