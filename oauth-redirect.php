@@ -86,7 +86,7 @@ if (isset($_GET['code'])) {
 
 ?>		
 
-<div class="container-narrow">
+<div class="container">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -100,14 +100,14 @@ if (isset($_GET['code'])) {
       <hr>
 
       <div class="jumbotron">
-			<h1>Thanks, <?php echo $response['name']; ?>!</h1>
-			<br>
-			<p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
-			<p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
-			<p>(for demo purposes only - don't show access tokens in live apps!)</p>
-			<br> <br>
-			<a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">Go to your ORCID record</a>
-	</div>
+      <h1>Thanks, <?php echo $response['name']; ?>!</h1>
+      <br>
+      <p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
+      <p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
+      <p>(for demo purposes only - don't show access tokens in live apps!)</p>
+      <br> <br>
+      <a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">Go to your ORCID record</a>
+  </div>
 
 <hr>
 

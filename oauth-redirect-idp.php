@@ -90,7 +90,7 @@ if (isset($_GET['code'])) {
 
 ?>		
 
-<div class="container-narrow">
+  <div class="container">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -104,13 +104,13 @@ if (isset($_GET['code'])) {
       <hr>
 
       <div class="jumbotron">
-			<h1>Thanks <?php echo $response['name']; ?>!</h1>
+      <h1>Thanks <?php echo $response['name']; ?>!</h1>
       <p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> is now connected to State University</p>
       <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
       <br> <br>
       <a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">View your ORCID record</a>
-			
-	</div>
+      
+  </div>
 
 <hr>
 
