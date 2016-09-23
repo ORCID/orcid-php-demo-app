@@ -11,5 +11,8 @@ View live demo at https://orcid-create-on-demand.herokuapp.com/
 
 [oauth-deny.php](oauth-deny.php) Sample page for use in insitutional sign-in workflows in cases where users click "Deny" instead of "Authorize."
 
+###HTML page versions
+[html/](html/) Plain HTML versions of the pages listed above, that can be viewed in a browser (not needed in order to run the demo app! Included for convenience)
+
 
 
