@@ -20,77 +20,8 @@
 
   <body>
 
-<?php
 
-//ORCID API CREDENTIALS - replace these values with your API credentials
-////////////////////////////////////////////////////////////////////////
-
-define('OAUTH_CLIENT_ID', 'APP-XXXXXXXXXXXXXXXX');//client ID
-define('OAUTH_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXX');//client secret
-define('OAUTH_REDIRECT_URI', 'http://your-redirect-uri.org');//redirect URI
-
-//ORCID API ENDPOINTS
-////////////////////////////////////////////////////////////////////////
-
-//Sandbox - Member API
-//define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
-//define('ENV', 'https://sandbox.orcid.org'); //environment
-
-//Sandbox - Public API
-//define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token');//token endpoint
-//define('ENV', 'https://sandbox.orcid.org'); //environment
-
-//Production - Member API
-define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
-define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
-define('ENV', 'https://orcid.org'); //environment
-
-//Production - Public API
-//define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://orcid.org/oauth/token');//token endpoint
-//define('ENV', 'https://orcid.org'); //environment
-
-//EXCHANGE AUTHORIZATION CODE FOR ACCESS TOKEN
-////////////////////////////////////////////////////////////////////////
-
-//If an authorization code exists, fetch the access token
-if (isset($_GET['code'])) {
-
-	//Build request parameter string
-	$params = "client_id=" . OAUTH_CLIENT_ID . "&client_secret=" . OAUTH_CLIENT_SECRET . "&grant_type=authorization_code&code=" . $_GET['code'] . "&redirect_uri=" . OAUTH_REDIRECT_URI;
-
-
-	//Initialize cURL session
-	$ch = curl_init();
-
-	//Set cURL options
-	curl_setopt($ch, CURLOPT_URL, OAUTH_TOKEN_URL);
-	curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json'));
-	curl_setopt($ch, CURLOPT_POST, true);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, 0);//Turn off SSL certificate check for testing - remove this for production version!
-	curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, 0);//Turn off SSL certificate check for testing - remove this for production version!
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
-
-	//Execute cURL command
-	$result = curl_exec($ch);
-
-	//Close cURL session
-	curl_close($ch);
-
-	//Transform cURL response from json string to php array
-	$response = json_decode($result, true);
-
-} else {
-	//If an authorization code doesn't exist, redirect user to another page
-	header( "Location: oauth-deny.php" ); die;
-}
-
-?>		
-
-  <div class="container">
+<div class="container">
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
@@ -104,13 +35,13 @@ if (isset($_GET['code'])) {
       <hr>
 
       <div class="jumbotron">
-      <h1>Thanks <?php echo $response['name']; ?>!</h1>
-      <p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> is now connected to State University</p>
+			<h1>Thanks Josiah Carberry!</h1>
+      <p class="lead">Your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> http://orcid.org/0000-0002-1825-0097 is now connected to State University</p>
       <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
       <br> <br>
       <a class="btn btn-large"  href="<?php echo ENV; ?>/my-orcid" target="_blank">View your ORCID record</a>
-      
-  </div>
+			
+	</div>
 
 <hr>
 
