@@ -2,7 +2,7 @@
 PHP code samples for the following ORCID API use cases:
 
 ##Create on demand
-**[index.php](index.php):** Sample implementation of the ORCID create-on-demand process, as described in http://members.orcid.org/create-records
+**[index.php](index.php):** Sample implementation of the ORCID create-on-demand process, as described in https://members.orcid.org/create-records
 
 View live demo at https://orcid-create-on-demand.herokuapp.com/
 

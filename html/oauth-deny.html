@@ -15,7 +15,7 @@
     <![endif]-->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="http://orcid.org/sites/default/files/images/orcid_16x16.png" />
+    <link rel="icon" type="image/png" href="https://orcid.org/sites/default/files/images/orcid_16x16.png" />
   </head>
 
   <body>
@@ -26,7 +26,7 @@
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="index.php">Home</a></li>
-          <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
+          <li><a href="https://orcid.org" target="_blank">About ORCID</a></li>
           <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
