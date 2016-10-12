@@ -5,13 +5,13 @@
     <title>ORCID Create on Demand Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Styles -->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-    <link href="boostrap/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="boostrap/js/html5shiv.js"></script>
+      <script src="bootstrap/js/html5shiv.js"></script>
     <![endif]-->
 
     <!-- Favicon -->
@@ -146,19 +146,8 @@ if (isset($_GET['code'])) {
     <!-- Javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="boostrap/js/jquery.js"></script>
-    <script src="boostrap/js/bootstrap-transition.js"></script>
-    <script src="boostrap/js/bootstrap-alert.js"></script>
-    <script src="boostrap/js/bootstrap-modal.js"></script>
-    <script src="boostrap/js/bootstrap-dropdown.js"></script>
-    <script src="boostrap/js/bootstrap-scrollspy.js"></script>
-    <script src="boostrap/js/bootstrap-tab.js"></script>
-    <script src="boostrap/js/bootstrap-tooltip.js"></script>
-    <script src="boostrap/js/bootstrap-popover.js"></script>
-    <script src="boostrap/js/bootstrap-button.js"></script>
-    <script src="boostrap/js/bootstrap-collapse.js"></script>
-    <script src="boostrap/js/bootstrap-carousel.js"></script>
-    <script src="boostrap/js/bootstrap-typeahead.js"></script>
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
 
   </body>
 </html>
