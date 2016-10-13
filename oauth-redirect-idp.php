@@ -15,7 +15,7 @@
     <![endif]-->
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="http://orcid.org/sites/default/files/images/orcid_16x16.png" />
+    <link rel="icon" type="image/png" href="https://orcid.org/sites/default/files/images/orcid_16x16.png" />
   </head>
 
   <body>
@@ -27,7 +27,7 @@
 
 define('OAUTH_CLIENT_ID', 'APP-XXXXXXXXXXXXXXXX');//client ID
 define('OAUTH_CLIENT_SECRET', 'XXXXXXXXXXXXXXXXXXXXXX');//client secret
-define('OAUTH_REDIRECT_URI', 'http://your-redirect-uri.org');//redirect URI
+define('OAUTH_REDIRECT_URI', 'https://your-redirect-uri.org');//redirect URI
 
 //ORCID API ENDPOINTS
 ////////////////////////////////////////////////////////////////////////
@@ -95,7 +95,7 @@ if (isset($_GET['code'])) {
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
           <li><a href="index.php">Home</a></li>
-          <li><a href="http://orcid.org" target="_blank">About ORCID</a></li>
+          <li><a href="https://orcid.org" target="_blank">About ORCID</a></li>
           <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
@@ -106,7 +106,7 @@ if (isset($_GET['code'])) {
       <div class="jumbotron">
       <div class="alert alert-success"><h3>Connection complete!</h3></div>
       <h1>Thanks <?php echo $response['name']; ?>!</h1>
-      <p class="lead">We have stored your ORCID <img src="http://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> in State University records.</p>
+      <p class="lead">We have stored your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> in State University records.</p>
       <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
       <p class="lead">You can revoke State University's permission at any time at <a href="https://orcid.org/account">https://orcid.org/account</a> .</p>
       <br> <br>
