@@ -106,7 +106,7 @@ if (isset($_GET['code'])) {
       <div class="jumbotron">
       <div class="alert alert-success"><h3>Connection complete!</h3></div>
       <h1>Thanks <?php echo $response['name']; ?>!</h1>
-      <p class="lead">We have stored your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <?php echo $response['orcid']; ?> in State University records.</p>
+      <p class="lead">We have stored your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <a href="http://orcid.org/<?php echo $response['orcid']; ?>">http://orcid.org/<?php echo $response['orcid']; ?></a> in State University records.</p>
       <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
       <p class="lead">You can revoke State University's permission at any time at <a href="https://orcid.org/account">https://orcid.org/account</a> .</p>
       <br> <br>
