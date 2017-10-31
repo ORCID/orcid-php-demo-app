@@ -34,12 +34,12 @@ define('OAUTH_REDIRECT_URI', 'https://your-redirect-uri.org');//redirect URI
 
 //Sandbox - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
+//define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token'); //token endpoint
 //define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Sandbox - Public API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token');//token endpoint
+//define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token');//token endpoint
 //define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Production - Member API
@@ -106,7 +106,7 @@ if (isset($_GET['code'])) {
       <div class="jumbotron">
       <div class="alert alert-success"><h3>Connection complete!</h3></div>
       <h1>Thanks <?php echo $response['name']; ?>!</h1>
-      <p class="lead">We have stored your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <a href="http://orcid.org/<?php echo $response['orcid']; ?>">http://orcid.org/<?php echo $response['orcid']; ?></a> in State University records.</p>
+      <p class="lead">We have stored your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> <a href="https://orcid.org/<?php echo $response['orcid']; ?>">https://orcid.org/<?php echo $response['orcid']; ?></a> in State University records.</p>
       <p class="lead">We've posted information about your role at State University to your ORCID record. Please review your record to confirm that the information is correct. If you notice any errors, please contact <a href="mailto:orcid@stateuniversity.edu">orcid@stateuniversity.edu</a> .</p>
       <p class="lead">You can revoke State University's permission at any time at <a href="https://orcid.org/account">https://orcid.org/account</a> .</p>
       <br> <br>
@@ -143,7 +143,7 @@ if (isset($_GET['code'])) {
       <hr>-->
 
       <div class="footer">
-        Want to build your own create-on-demand app? <a href="https://github.com/lizkrznarich/orcid-demo-app" target="_blank">Get the code</a>
+        Want to build your own create-on-demand app? <a href="https://github.com/ORCID/orcid-php-demo-app" target="_blank">Get the code</a>
       </div>
 
     </div> <!-- /container -->
