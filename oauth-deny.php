@@ -88,7 +88,7 @@
       <hr>-->
 
       <div class="footer">
-        Want to build your own create-on-demand app? <a href="https://github.com/lizkrznarich/orcid-demo-app" target="_blank">Get the code</a>
+        Want to build your own create-on-demand app? <a href="https://github.com/ORCID/orcid-php-demo-app" target="_blank">Get the code</a>
       </div>
 
     </div> <!-- /container -->
