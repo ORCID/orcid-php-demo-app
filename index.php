@@ -38,7 +38,7 @@
         <br>
         <p class="lead">Click the button below to create an ORCID iD and connect it to State University's faculty profile system.</p>
         <!--replace client_id and redirect_uri with your own values-->
-        <a class="btn btn-large" href="https://orcid.org/oauth/authorize?client_id=APP-XXXXXXXXXXXXXXXX&response_type=code&scope=/authenticate&redirect_uri=https://your-redirect-uri.org"><img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
+        <a class="btn btn-large" href="https://orcid.org/oauth/authorize?client_id=APP-XXXXXXXXXXXXXXXX&response_type=code&scope=/authenticate&show_login=false&redirect_uri=https://your-redirect-uri.org"><img id="orcid-id-logo" src="https://orcid.org/sites/default/files/images/orcid_24x24.png" width='24' height='24' alt="ORCID logo"/> Create a new ORCID iD</a>
         <br> <br>
         <!--replace client_id and redirect_uri with your own values-->
         <p class="lead">Already have an ORCID iD? <a href="https://orcid.org/oauth/authorize?client_id=APP-XXXXXXXXXXXXXXXX&response_type=code&scope=/authenticate&redirect_uri=https://your-redirect-uri.org&show_login=true">Connect your existing ORCID iD</a>
