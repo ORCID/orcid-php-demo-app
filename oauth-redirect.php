@@ -34,11 +34,11 @@ define('OAUTH_REDIRECT_URI', 'https://your-redirect-uri.org');//redirect URI
 
 //Sandbox - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://api.sandbox.orcid.org/oauth/token'); //token endpoint
+//define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token'); //token endpoint
 
 //Sandbox - Public API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
-//define('OAUTH_TOKEN_URL', 'https://pub.sandbox.orcid.org/oauth/token');//token endpoint
+//define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token');//token endpoint
 
 //Production - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
@@ -90,8 +90,8 @@ if (isset($_GET['code'])) {
 
       <div class="masthead">
         <ul class="nav nav-pills pull-right">
-          <li><a href="https://orcid-create-on-demand.herokuapp.com/">Home</a></li>
-          <li><a href="https://orcid.org" target="_blank">About ORCID</a></li>
+          <li><a href="index.php">Home</a></li>
+          <li><a href="https://orcid.org/about" target="_blank">About ORCID</a></li>
           <li><a href="https://orcid.org/help/contact-us" target="_blank">Contact ORCID</a></li>
         </ul>
         <h3 class="muted">ORCID @ State University</h3>
@@ -102,7 +102,7 @@ if (isset($_GET['code'])) {
       <div class="jumbotron">
       <h1>Thanks, <?php echo $response['name']; ?>!</h1>
       <br>
-      <p class="lead">Your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <?php echo $response['orcid']; ?></p>
+      <p class="lead">Your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <a href="https://orcid.org/<?php echo $response['orcid']; ?>" target="_blank">https://orcid.org/<?php echo $response['orcid']; ?></p>
       <p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
       <p>(for demo purposes only - don't show access tokens in live apps!)</p>
       <br> <br>
@@ -138,7 +138,7 @@ if (isset($_GET['code'])) {
       <hr>-->
 
       <div class="footer">
-        Want to build your own create-on-demand app? <a href="https://github.com/lizkrznarich/orcid-demo-app" target="_blank">Get the code</a>
+        Want to build your own create-on-demand app? <a href="https://github.com/ORCID/orcid-php-demo-app" target="_blank">Get the code</a>
       </div>
 
     </div> <!-- /container -->
