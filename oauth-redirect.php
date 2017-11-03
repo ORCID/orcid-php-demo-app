@@ -35,18 +35,22 @@ define('OAUTH_REDIRECT_URI', 'https://your-redirect-uri.org');//redirect URI
 //Sandbox - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
 //define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token'); //token endpoint
+//define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Sandbox - Public API
 //define('OAUTH_AUTHORIZATION_URL', 'https://sandbox.orcid.org/oauth/authorize');//authorization endpoint
 //define('OAUTH_TOKEN_URL', 'https://sandbox.orcid.org/oauth/token');//token endpoint
+//define('ENV', 'https://sandbox.orcid.org'); //environment
 
 //Production - Member API
 //define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
 //define('OAUTH_TOKEN_URL', 'https://api.orcid.org/oauth/token'); //token endpoint
+//define('ENV', 'https://orcid.org'); //environment
 
 //Production - Public API
 define('OAUTH_AUTHORIZATION_URL', 'https://orcid.org/oauth/authorize');//authorization endpoint
 define('OAUTH_TOKEN_URL', 'https://orcid.org/oauth/token');//token endpoint
+define('ENV', 'https://orcid.org'); //environment
 
 //EXCHANGE AUTHORIZATION CODE FOR ACCESS TOKEN
 ////////////////////////////////////////////////////////////////////////
@@ -102,7 +106,7 @@ if (isset($_GET['code'])) {
       <div class="jumbotron">
       <h1>Thanks, <?php echo $response['name']; ?>!</h1>
       <br>
-      <p class="lead">Your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <a href="https://orcid.org/<?php echo $response['orcid']; ?>" target="_blank">https://orcid.org/<?php echo $response['orcid']; ?></p>
+      <p class="lead">Your ORCID <img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" class="logo" width='16' height='16' alt="iD"/> is <a href="<?php echo ENV; ?>/<?php echo $response['orcid']; ?>" target="_blank"><?php echo ENV; ?>/<?php echo $response['orcid']; ?></a></p>
       <p class="lead">The access token we're storing in our database so that we can update your ORCID record in the future is <b><?php echo $response['access_token']; ?></b></p>
       <p>(for demo purposes only - don't show access tokens in live apps!)</p>
       <br> <br>
